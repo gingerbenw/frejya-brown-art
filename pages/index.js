@@ -5,9 +5,9 @@ import Hero from 'components/Hero';
 
 const Index = () => (
   <main>
-    <Header />
+    {/* <Header /> */}
     <Hero />
-    <Gallery />
+    {/* <Gallery /> */}
   </main>
 );
 
