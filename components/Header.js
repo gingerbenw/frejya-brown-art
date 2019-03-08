@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Header = () => (
   <FixedHeader>
-    <ul>
+    <NavMenu>
       <Link href="/">
         <NavItem>Home</NavItem>
       </Link>
@@ -14,7 +14,7 @@ const Header = () => (
       <Link href="#gallery">
         <NavItem>Gallery</NavItem>
       </Link>
-    </ul>
+    </NavMenu>
   </FixedHeader>
 );
 
@@ -22,11 +22,29 @@ export default Header;
 
 const FixedHeader = styled.header`
   position: absolute;
+  width: 100%;
   z-index: 1;
+`;
+
+const NavMenu = styled.nav`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  padding: 0.5rem;
 `;
 
 const NavItem = styled.span`
   color: white;
   text-transform: uppercase;
   cursor: pointer;
+
+  margin: 0.5rem 1rem;
+
+  transition: border-color 0.5s ease-in-out;
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    border-bottom: 1px solid #fff;
+  }
 `;
