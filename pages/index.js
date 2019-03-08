@@ -1,13 +1,15 @@
 import React from 'react';
 import Gallery from 'components/Gallery';
 import Header from 'components/Header';
+import About from 'components/About';
 import Hero from 'components/Hero';
 
 const Index = () => (
   <main>
-    {/* <Header /> */}
+    <Header />
     <Hero />
-    {/* <Gallery /> */}
+    <About />
+    <Gallery />
   </main>
 );
 

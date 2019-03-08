@@ -1,14 +1,32 @@
+import React from 'react';
+import Link from 'next/link';
+import styled from 'styled-components';
+
 const Header = () => (
-  <header>
-    <nav>
-      <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Gallery</li>
-        <li>Contact</li>
-      </ul>
-    </nav>
-  </header>
+  <FixedHeader>
+    <ul>
+      <Link href="/">
+        <NavItem>Home</NavItem>
+      </Link>
+      <Link href="#about">
+        <NavItem>About</NavItem>
+      </Link>
+      <Link href="#gallery">
+        <NavItem>Gallery</NavItem>
+      </Link>
+    </ul>
+  </FixedHeader>
 );
 
 export default Header;
+
+const FixedHeader = styled.header`
+  position: absolute;
+  z-index: 1;
+`;
+
+const NavItem = styled.span`
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+`;

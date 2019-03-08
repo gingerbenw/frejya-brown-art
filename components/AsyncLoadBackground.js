@@ -11,10 +11,11 @@ class AsyncLoadBackground extends React.PureComponent {
   }
 
   render() {
-    const { children, src } = this.props;
+    const { children, src, fixed } = this.props;
+    const { loaded } = this.state;
     return (
       <Wrapper {...this.props}>
-        <Background src={src} loaded={this.state.loaded} />
+        <Background src={src} loaded={loaded} fixed={fixed} />
         {children}
       </Wrapper>
     );
@@ -39,6 +40,8 @@ const Background = styled.div`
 
   transition: opacity 1s;
   opacity: ${({ loaded }) => (loaded ? '1' : '0')};
+
+  background-attachment: ${({ fixed }) => (fixed ? 'fixed' : 'scroll')};
 
   background-image: url(${({ src }) => src});
   background-size: cover;
