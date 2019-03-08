@@ -26,8 +26,10 @@ const HeroWrapper = styled(AsyncLoadBackground)`
 `;
 
 const Contents = styled.div`
-  border: 3px solid white;
+  /* border: 3px solid white; */
   padding: 2rem 3rem;
+
+  background: rgba(255,255,255,0.3);
 
   h1 {
     color: white;
