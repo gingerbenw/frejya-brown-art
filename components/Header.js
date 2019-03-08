@@ -38,9 +38,8 @@ const NavItem = styled.span`
   color: white;
   text-transform: uppercase;
   cursor: pointer;
-
+  letter-spacing: 0.125rem;
   margin: 0.5rem 1rem;
-
   transition: border-color 0.5s ease-in-out;
   border-bottom: 1px solid transparent;
 
