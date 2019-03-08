@@ -2,21 +2,23 @@ import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const Header = () => (
-  <FixedHeader>
-    <NavMenu>
-      <Link href="/">
-        <NavItem>Home</NavItem>
-      </Link>
-      <Link href="#about">
-        <NavItem>About</NavItem>
-      </Link>
-      <Link href="#gallery">
-        <NavItem>Gallery</NavItem>
-      </Link>
-    </NavMenu>
-  </FixedHeader>
-);
+const Header = () => {
+  return (
+    <FixedHeader>
+      <NavMenu>
+        <Link href="/">
+          <NavItem>Home</NavItem>
+        </Link>
+        <Link href="#about">
+          <NavItem>About</NavItem>
+        </Link>
+        <Link href="#gallery">
+          <NavItem>Gallery</NavItem>
+        </Link>
+      </NavMenu>
+    </FixedHeader>
+  );
+};
 
 export default Header;
 
@@ -29,7 +31,7 @@ const FixedHeader = styled.header`
 const NavMenu = styled.nav`
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: auto;
 
   padding: 0.5rem;
 `;
