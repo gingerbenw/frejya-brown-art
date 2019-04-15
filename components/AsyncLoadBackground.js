@@ -41,7 +41,7 @@ const Background = styled.div`
   transition: opacity 1s;
   opacity: ${({ loaded }) => (loaded ? '1' : '0')};
 
-  background-attachment: ${({ fixed }) => (fixed ? 'fixed' : 'scroll')};
+  /* background-attachment: ${({ fixed }) => (fixed ? 'fixed' : 'scroll')}; */
 
   background-image: url(${({ src }) => src});
   background-size: cover;

@@ -3,26 +3,11 @@ import Link from 'next/link';
 import AsyncLoadBackground from 'components/AsyncLoadBackground';
 import styled from 'styled-components';
 
-// Images
-const image1 = '/static/images/artwork/001.jpg';
-const image2 = '/static/images/artwork/002.jpg';
-const image3 = '/static/images/artwork/003.jpg';
-const image4 = '/static/images/artwork/004.jpg';
-const image5 = '/static/images/artwork/005.jpg';
-
-const images = [
-  { title: 'BRAHMĀ', src: image1, url: '/artwork/image1' },
-  { title: 'Jon snow', src: image2, url: '/artwork/image1' },
-  { title: 'Flying fish', src: image3, url: '/artwork/image1' },
-  { title: 'Unicorn', src: image4, url: '/artwork/image1' },
-  { title: 'Multiverse', src: image5, url: '/artwork/image1' },
-];
-
-const Gallery = () => (
+const Gallery = ({ images }) => (
   <Container id="gallery">
-    {images.map(({ title, src, url }) => (
+    {images.map(({ title, id, url, src }) => (
       <Link href={url}>
-        <Item src={src}>
+        <Item withScrollEffect src={src}>
           <span>{title}</span>
           <hr />
         </Item>
@@ -35,19 +20,15 @@ export default Gallery;
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 0.5rem;
 
   max-width: 1200px;
   margin: auto;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-bottom: 6rem;
 
-  /* Small devices */
   @media (max-width: 768px) {
-    grid-gap: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 
@@ -56,7 +37,6 @@ const Item = styled(AsyncLoadBackground)`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  grid-column: span 4;
   height: 16rem;
   letter-spacing: 0.25rem;
   color: #444;
@@ -98,10 +78,5 @@ const Item = styled(AsyncLoadBackground)`
       opacity: 0.9;
       margin-top: 1rem;
     }
-  }
-
-  /* Small devices */
-  @media (max-width: 768px) {
-    grid-column: span 6;
   }
 `;

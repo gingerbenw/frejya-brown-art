@@ -7,18 +7,16 @@ const headshot = '/static/images/about.jpg';
 
 const About = () => (
   <AboutWrapper src={headshot} id="about">
-    <Header>
-      <h2>About me</h2>
-    </Header>
     <Content>
-      <Row>
+      <Header>
+        <h2>About me</h2>
+      </Header>
+      <Narrow>
         <Lead>
           My name is Freya Brown and I am an artist that specialises in the use
           of biro/ballpoint pens to create both hyper-realistic portraits and my
           own creative designs.
         </Lead>
-      </Row>
-      <Col>
         <Lead>I began art from a very young age...</Lead>
         <P>
           ...and it has been my passion ever since. I have dabbled in a lot of
@@ -29,7 +27,7 @@ const About = () => (
           techniques.
         </P>
         <P>Thank you for visiting my page, and I hope you enjoy my work.</P>
-      </Col>
+      </Narrow>
     </Content>
   </AboutWrapper>
 );
@@ -43,7 +41,7 @@ const AboutWrapper = styled(AsyncLoadBackground)`
 `;
 
 const Header = styled.div`
-  text-align: center;
+  text-align: left;
   padding: 15px 1rem;
 
   color: #fff;
@@ -55,10 +53,10 @@ const Header = styled.div`
 `;
 
 const Content = styled.div`
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  /* display: grid;
+  grid-template-columns: repeat(12, 1fr); */
 
-  max-width: 900px;
+  /* max-width: 900px; */
   margin: auto;
   padding: 15px 1rem;
 `;
@@ -81,4 +79,8 @@ const Lead = styled.p`
 const P = styled.p`
   line-height: 1.6rem;
   color: #ddd;
+`;
+
+const Narrow = styled.div`
+  width: 70%;
 `;

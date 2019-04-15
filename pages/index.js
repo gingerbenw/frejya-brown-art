@@ -1,17 +1,17 @@
-import React from 'react';
-import Gallery from 'components/Gallery';
-import Header from 'components/Header';
 import About from 'components/About';
-import SideNav from 'components/SideNav';
 import Hero from 'components/Hero';
+import SideNav from 'components/SideNav';
+import ImageGallery from 'containers/ImageGallery';
+import React from 'react';
+import artworks from 'utils/mocks/artwork';
 
 const Index = () => (
   <div>
     {/* <Header /> */}
-    <SideNav />
+    {/* <SideNav /> */}
     <Hero />
     <About />
-    <Gallery />
+    <ImageGallery artworks={artworks} />
   </div>
 );
 

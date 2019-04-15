@@ -1,11 +1,12 @@
+import AsyncLoadBackground from 'components/AsyncLoadBackground';
 import React from 'react';
 import styled from 'styled-components';
-import AsyncLoadBackground from 'components/AsyncLoadBackground';
 
-const Background = '/static/images/artwork/002.jpg';
+// Images
+const Background = '/static/images/artwork/jon-snow.jpg';
 
 const Hero = () => (
-  <HeroWrapper fixed src={Background}>
+  <HeroWrapper src={Background}>
     <Contents>
       <h1>The art of Freya Brown</h1>
     </Contents>
@@ -26,10 +27,8 @@ const HeroWrapper = styled(AsyncLoadBackground)`
 `;
 
 const Contents = styled.div`
-  /* border: 3px solid white; */
   padding: 2rem 3rem;
-
-  background: rgba(255,255,255,0.3);
+  background: rgba(255, 255, 255, 0.3);
 
   h1 {
     color: white;
