@@ -67,10 +67,10 @@ collections:
           - {label: Noindex, name: noindex, widget: boolean, required: false}
 
   - name: categories
-    label: Art Category
+    label: Categories
     editor:
       preview: false
-    folder: content/postCategories
+    folder: content/categories
     slug: "{{slug}}"
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
