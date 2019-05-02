@@ -23,18 +23,18 @@ module.exports = {
     );
     return config;
   },
-  // exportPathMap: async () => {
-  //   // Get list of pages from API and map them to 'real' pages/templates
-  //   const artworkPages = artworks.reduce(
-  //     (pages, { url, id }) =>
-  //       Object.assign({}, pages, {
-  //         [url]: {
-  //           page: '/artwork',
-  //           query: { id },
-  //         },
-  //       }),
-  //     {},
-  //   );
+  exportPathMap: async () => {
+    //   // Get list of pages from API and map them to 'real' pages/templates
+    //   const artworkPages = artworks.reduce(
+    //     (pages, { url, id }) =>
+    //       Object.assign({}, pages, {
+    //         [url]: {
+    //           page: '/artwork',
+    //           query: { id },
+    //         },
+    //       }),
+    //     {},
+    //   );
 
     // Combine the page maps and any static pages
     const exportPages = {
