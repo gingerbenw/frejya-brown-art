@@ -1,54 +1,36 @@
 import React, { useState } from 'react';
-import ImageGallery from 'containers/ImageGallery';
-import Header from 'components/Header';
-import About from 'components/About';
-import SideNav from 'components/SideNav';
-import Hero from 'components/Hero';
-import artworks from 'data';
+import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import AsyncLoadBackground from 'components/AsyncLoadBackground';
-import Markdown from 'react-markdown';
-import Router from 'next/router';
+
+// Components
+import AsyncLoadBackground from '../components/AsyncLoadBackground';
+import Content from '../components/Content';
+
+// Icons
 import Plus from '../static/images/icons/plus.svg';
 import Close from '../static/images/icons/close.svg';
 
-const PrevCursor = '/static/images/icons/plus.svg';
-const NextCursor = '/static/images/icons/next.svg';
+// const PrevCursor = '/static/images/icons/plus.svg';
+// const NextCursor = '/static/images/icons/next.svg';
 
-const Artwork = ({ page }) => {
+const Artwork = ({ content }) => {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
   const toggleInfo = () => setShowMoreInfo(!showMoreInfo);
 
-  // Pagination
-  const activeIndex = artworks.findIndex((art) => art.id === page.id);
-
-  const pageUp = () => {
-    const nextItem =
-      artworks.length - 1 === activeIndex
-        ? artworks[0]
-        : artworks[activeIndex + 1];
-    Router.push(nextItem.url);
-  };
-
-  const pageDown = () => {
-    const prevItem =
-      activeIndex === 0
-        ? artworks[artworks.length - 1]
-        : artworks[activeIndex - 1];
-    Router.push(prevItem.url);
-  };
-
-  const { id, src, title, description } = page;
+  const {
+    html,
+    attributes: { title, featuredImage },
+  } = content;
   return (
     <Wrapper>
-      <Backdrop src={src} zoom={showMoreInfo} />
+      <Backdrop src={featuredImage} zoom={showMoreInfo} />
       {showMoreInfo ? (
         <MoreInfo>
           <Close onClick={toggleInfo} />
-          <Image src={src} alt={title} />
+          <Image src={featuredImage} alt={title} />
           <Details>
             <Title>{title}</Title>
-            <Markdown source={description} />
+            <Content src={html} />
           </Details>
         </MoreInfo>
       ) : (
@@ -59,19 +41,35 @@ const Artwork = ({ page }) => {
           <TitlePanel>{title}</TitlePanel>
         </InfoPanel>
       )}
-      <PaginationLeft onClick={pageDown} />
-      <PaginationRight onClick={pageUp} />
+      {/* <PaginationLeft onClick={pageDown} />
+      <PaginationRight onClick={pageUp} /> */}
     </Wrapper>
   );
 };
 
 export default Artwork;
 
-Artwork.getInitialProps = ({ query: { id } }) => {
-  const page = artworks.find((artwork) => artwork.id === id);
-
-  return { page };
+Artwork.propTypes = {
+  content: PropTypes.object,
 };
+
+/* eslint-disable global-require */
+/* eslint-disable import/no-dynamic-require */
+Artwork.getInitialProps = ({ query: { file } }) => {
+  const content = require(`../content/artworks/${file}`);
+  return { content };
+};
+
+const animations = css`
+  @keyframes fillIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+`;
 
 const Wrapper = styled.main`
   position: relative;
@@ -189,7 +187,7 @@ const Backdrop = styled(AsyncLoadBackground)`
   width: 100%;
 
   transition: transform 1s;
-  transform: scale(${({ zoom }) => zoom ? '1.2' : '1'});
+  transform: scale(${({ zoom }) => (zoom ? '1.2' : '1')});
 `;
 
 const Title = styled.h1`
@@ -199,47 +197,55 @@ const Title = styled.h1`
   letter-spacing: 0.5rem;
 `;
 
-const PaginationLeft = styled.div`
-  position: absolute;
-  height: 100vh;
-  width: 50%;
-  top: 0;
-  left: 0;
-  /* cursor: url(${PrevCursor}), pointer; */
+// const PaginationLeft = styled.div`
+//   position: absolute;
+//   height: 100vh;
+//   width: 50%;
+//   top: 0;
+//   left: 0;
+//   /* cursor: url(${PrevCursor}), pointer; */
 
-  &:hover {
-    background-image: linear-gradient(
-      to left,
-      rgba(0, 0, 0, 0),
-      rgba(0, 0, 0, 0.2)
-    );
-  }
-`;
+//   &:hover {
+//     background-image: linear-gradient(
+//       to left,
+//       rgba(0, 0, 0, 0),
+//       rgba(0, 0, 0, 0.2)
+//     );
+//   }
+// `;
 
-const PaginationRight = styled.div`
-  position: absolute;
-  height: 100vh;
-  width: 50%;
-  top: 0;
-  right: 0;
-  /* cursor: url(${NextCursor}), pointer; */
+// const PaginationRight = styled.div`
+//   position: absolute;
+//   height: 100vh;
+//   width: 50%;
+//   top: 0;
+//   right: 0;
+//   /* cursor: url(${NextCursor}), pointer; */
 
-  &:hover {
-    background-image: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0),
-      rgba(0, 0, 0, 0.2)
-    );
-  }
-`;
+//   &:hover {
+//     background-image: linear-gradient(
+//       to right,
+//       rgba(0, 0, 0, 0),
+//       rgba(0, 0, 0, 0.2)
+//     );
+//   }
+// `;
 
-const animations = css`
-  @keyframes fillIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-`;
+// Pagination
+// const activeIndex = artworks.findIndex((art) => art.id === page.id);
+
+// const pageUp = () => {
+//   const nextItem =
+//     artworks.length - 1 === activeIndex
+//       ? artworks[0]
+//       : artworks[activeIndex + 1];
+//   Router.push(nextItem.url);
+// };
+
+// const pageDown = () => {
+//   const prevItem =
+//     activeIndex === 0
+//       ? artworks[artworks.length - 1]
+//       : artworks[activeIndex - 1];
+//   Router.push(prevItem.url);
+// };
