@@ -1,6 +1,9 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 
+// Global data
+import data from '../data.json';
+
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
@@ -17,7 +20,7 @@ class MyApp extends App {
 
     return (
       <Container>
-        <Component {...pageProps} />
+        <Component {...pageProps} {...data} />
       </Container>
     );
   }

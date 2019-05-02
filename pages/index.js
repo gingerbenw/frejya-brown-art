@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 // Components
 import Hero from '../components/Hero';
@@ -6,12 +7,11 @@ import Content from '../components/Content';
 
 // Markdown
 import content from '../content/home.md';
-import data from '../data.json';
 
 /* eslint-disable no-unused-vars */
 
-const Home = () => {
-  const featuredArtworks = data.artworks.filter((page) => page.status === 'Featured');
+const Home = ({ artworks }) => {
+  const featuredArtworks = artworks.filter((page) => page.status === 'Featured');
   const [activeArtwork, setActiveArtwork] = useState(featuredArtworks[0]);
 
   const {
@@ -23,7 +23,7 @@ const Home = () => {
       <Hero title={title} background={activeArtwork.featuredImage} />
       <Content src={html} />
       <ul>
-        {data.artworks.map((artwork, k) => (
+        {artworks.map((artwork, k) => (
           <li key={k}>
             <h2>{artwork.title}</h2>
             <img src={artwork.featuredImage} alt={artwork.title} />
@@ -35,3 +35,7 @@ const Home = () => {
 };
 
 export default Home;
+
+Home.propTypes = {
+  artworks: PropTypes.array,
+};
