@@ -73,4 +73,6 @@ collections:
     folder: content/categories
     slug: "{{slug}}"
     create: true # Allow users to create new documents in this collection
-    
+    fields: # The fields each document in this collection have
+      - {label: Title, name: title, widget: string}
+     
