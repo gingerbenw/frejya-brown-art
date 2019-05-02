@@ -1,28 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-class AsyncLoadBackground extends React.PureComponent {
-  state = { loaded: false };
+const AsyncLoadBackground = (props) => {
+  const { children, src, fixed } = props;
+  const [loaded, setLoaded] = useState(false);
 
-  componentDidMount() {
+  useEffect(() => {
     const img = new Image();
-    img.onload = () => this.setState({ loaded: true });
-    img.src = this.props.src;
-  }
+    img.onload = () => setLoaded(true);
+    img.src = src;
+  }, [src]);
 
-  render() {
-    const { children, src, fixed } = this.props;
-    const { loaded } = this.state;
-    return (
-      <Wrapper {...this.props}>
-        <Background src={src} loaded={loaded} fixed={fixed} />
-        {children}
-      </Wrapper>
-    );
-  }
-}
+  return (
+    <Wrapper {...props}>
+      <Background src={src} loaded={loaded} fixed={fixed} />
+      {children}
+    </Wrapper>
+  );
+};
 
 export default AsyncLoadBackground;
+
+AsyncLoadBackground.propTypes = {
+  children: PropTypes.node,
+  src: PropTypes.node.isRequired,
+  fixed: PropTypes.bool,
+};
 
 const Wrapper = styled.div`
   position: relative;
