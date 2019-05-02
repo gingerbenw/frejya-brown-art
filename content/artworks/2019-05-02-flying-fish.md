@@ -4,7 +4,8 @@ status: Published
 date: 2019-05-02T14:20:56.852Z
 featuredImage: /static/img/flying-fish.jpg
 excerpt: Part of a group of animal studies
-categories: []
+categories:
+  - category: Animal Study
 meta: {}
 ---
 Part of a group of animal studies
