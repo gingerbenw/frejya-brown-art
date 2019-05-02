@@ -36,13 +36,13 @@ module.exports = {
   //     {},
   //   );
 
-  //   // Combine the page maps and any static pages
-  //   const exportPages = {
-  //     ...artworkPages,
-  //     '/': { page: '/' },
-  //     '/admin': { page: '/admin' },
-  //   };
+    // Combine the page maps and any static pages
+    const exportPages = {
+      // ...artworkPages,
+      // '/': { page: '/' },
+      '/': { page: '/home' },
+    };
 
-  //   return exportPages;
-  // },
+    return exportPages;
+  },
 };
