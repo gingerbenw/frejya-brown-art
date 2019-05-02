@@ -1,12 +1,14 @@
-// import CMS from 'netlify-cms';
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
+
+const CMS = dynamic(import('netlify-cms'), {
+  ssr: false,
+});
 
 const Admin = () => (
   <div>
-    <Head>
-      <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js" />
-    </Head>
     <h1>Admin page</h1>
+    <CMS />
   </div>
 );
 

@@ -4,6 +4,7 @@ build
 out
 .next
 package-lock.json
+npm-debug.log
 
 # Cruft
 .DS_Store
