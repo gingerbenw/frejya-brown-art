@@ -41,6 +41,12 @@ module.exports = {
       // ...artworkPages,
       // '/': { page: '/' },
       '/': { page: '/home' },
+      '/art/jon-snow': {
+        page: '/art',
+        query: {
+          slug: '2019-05-02-jon-snow',
+        },
+      },
     };
 
     return exportPages;
