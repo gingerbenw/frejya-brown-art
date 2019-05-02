@@ -24,7 +24,7 @@ module.exports = {
         const files = data.reduce(
           (artworks, file) => Object.assign({}, artworks, {
               ['/art/' + file.split('.md')[0]]: {
-                page: '/art',
+                page: '/artwork',
                 query: { file },
               },
             }),
@@ -36,7 +36,7 @@ module.exports = {
     });
 
     const exportPages = {
-      '/': { page: '/home' },
+      '/': { page: '/' },
       ...artwork,
     };
 
