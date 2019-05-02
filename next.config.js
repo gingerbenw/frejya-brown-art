@@ -1,5 +1,4 @@
-const path = require('path');
-const fs = require('fs');
+const data = require('./data.json');
 
 /* eslint-disable prefer-template */
 module.exports = {
@@ -17,27 +16,19 @@ module.exports = {
     return config;
   },
   exportPathMap: async () => {
-    const directoryPath = path.join(__dirname, 'content/artworks');
-
-    const artwork = await new Promise((resolve, reject) => {
-      fs.readdir(directoryPath, (err, data) => {
-        const files = data.reduce(
-          (artworks, file) => Object.assign({}, artworks, {
-              ['/art/' + file.split('.md')[0]]: {
-                page: '/artwork',
-                query: { file },
-              },
-            }),
-          {},
-        );
-        if (err) reject(err);
-        else resolve(files);
-      });
-    });
+    const artworks = data.artworks.reduce(
+      (files, { name }) => Object.assign({}, files, {
+          ['/art/' + name]: {
+            page: '/artwork',
+            query: { file: name + '.md' },
+          },
+        }),
+      {},
+    );
 
     const exportPages = {
       '/': { page: '/' },
-      ...artwork,
+      ...artworks,
     };
 
     return exportPages;

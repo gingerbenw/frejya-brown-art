@@ -11,8 +11,6 @@ import content from '../content/home.md';
 
 /* eslint-disable no-unused-vars */
 
-const convertToUrl = (string) => `/art/${string.toLowerCase().replace(' ', '-')}`;
-
 const Home = ({ artworks }) => {
   const featuredArtworks = artworks.filter((page) => page.status === 'Featured');
   const [activeArtwork, setActiveArtwork] = useState(featuredArtworks[0]);
@@ -28,8 +26,10 @@ const Home = ({ artworks }) => {
       <ul>
         {artworks.map((artwork, k) => (
           <li key={k}>
-            <Link href={convertToUrl(artwork.title)}>
-              <h2>{artwork.title}</h2>
+            <Link href={`/art/${artwork.name}`}>
+              <a>
+                <h2>{artwork.title}</h2>
+              </a>
             </Link>
             <img src={artwork.featuredImage} alt={artwork.title} />
           </li>
