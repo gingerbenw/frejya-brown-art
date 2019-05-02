@@ -9,7 +9,7 @@ import AsyncLoadBackground from './AsyncLoadBackground';
 const Gallery = ({ artworks }) => (
   <Container id="gallery">
     {artworks.map(({ title, featuredImage, name }) => (
-      <Link href={`/art/${name}`}>
+      <Link href={`/work/${name}`}>
         <Item withScrollEffect src={featuredImage}>
           <span>{title}</span>
           <hr />

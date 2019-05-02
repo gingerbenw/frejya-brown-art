@@ -18,7 +18,7 @@ module.exports = {
   exportPathMap: async () => {
     const artworks = data.artworks.reduce(
       (files, { name }) => Object.assign({}, files, {
-          ['/art/' + name]: {
+          ['/work/' + name]: {
             page: '/artwork',
             query: { file: name + '.md' },
           },
