@@ -1,46 +1,44 @@
-import Gallery from 'components/Gallery';
+/* eslint-disable max-len */
+
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-const categories = [
-  'Art print',
-  'Photorealism',
-  'Universe series',
-  'Animal study',
-];
+// Components
+import Gallery from '../components/Gallery';
 
-const ImageGallery = ({ artworks }) => {
+const ImageGallery = ({ artworks, categories }) => {
   const [categoryFilter, setCategoryFilter] = useState(null);
 
   // Filter images
-  const filteredImages = categoryFilter
-    ? artworks.filter(({ tags }) => tags.indexOf(categoryFilter) !== -1)
+  const filteredArtworks = categoryFilter
+    ? artworks.filter((artwork) => artwork.categories.some(({ category }) => category === categoryFilter),
+      )
     : artworks;
 
   return (
     <Wrapper>
       <Filters>
-        <Category
-          active={categoryFilter === null}
-          onClick={() => setCategoryFilter(null)}
-        >
+        <Category active={categoryFilter === null} onClick={() => setCategoryFilter(null)}>
           All
         </Category>
-        {categories.map((category) => (
-          <Category
-            active={categoryFilter === category}
-            onClick={() => setCategoryFilter(category)}
-          >
-            {category}
+        {categories.map(({ title }) => (
+          <Category active={categoryFilter === title} onClick={() => setCategoryFilter(title)}>
+            {title}
           </Category>
         ))}
       </Filters>
-      <Gallery images={filteredImages} />
+      <Gallery artworks={filteredArtworks} />
     </Wrapper>
   );
 };
 
 export default ImageGallery;
+
+ImageGallery.propTypes = {
+  artworks: PropTypes.array,
+  categories: PropTypes.array,
+};
 
 const Wrapper = styled.div`
   text-align: center;

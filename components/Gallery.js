@@ -1,13 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
-import AsyncLoadBackground from 'components/AsyncLoadBackground';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-const Gallery = ({ images }) => (
+// Components
+import AsyncLoadBackground from './AsyncLoadBackground';
+
+const Gallery = ({ artworks }) => (
   <Container id="gallery">
-    {images.map(({ title, id, url, src }) => (
-      <Link href={url}>
-        <Item withScrollEffect src={src}>
+    {artworks.map(({ title, featuredImage, name }) => (
+      <Link href={`/art/${name}`}>
+        <Item withScrollEffect src={featuredImage}>
           <span>{title}</span>
           <hr />
         </Item>
@@ -17,6 +20,10 @@ const Gallery = ({ images }) => (
 );
 
 export default Gallery;
+
+Gallery.propTypes = {
+  artworks: PropTypes.array.isRequired,
+};
 
 const Container = styled.div`
   display: grid;
@@ -50,8 +57,7 @@ const Item = styled(AsyncLoadBackground)`
     font-size: 0.9rem;
     opacity: 0;
 
-    transition: opacity 0.5s ease-in-out, font-size 0.5s ease-in-out,
-      padding 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out, font-size 0.5s ease-in-out, padding 0.5s ease-in-out;
   }
 
   hr {
@@ -59,8 +65,7 @@ const Item = styled(AsyncLoadBackground)`
     opacity: 0;
     border: none;
     border-bottom: 1px solid #999;
-    transition: opacity 0.5s ease-in-out, width 0.5s ease-in-out,
-      margin 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out, width 0.5s ease-in-out, margin 0.5s ease-in-out;
   }
 
   /* Hover */
