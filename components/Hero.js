@@ -1,19 +1,24 @@
-import AsyncLoadBackground from 'components/AsyncLoadBackground';
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-// Images
-const Background = '/static/images/artwork/jon-snow.jpg';
+// Components
+import AsyncLoadBackground from './AsyncLoadBackground';
 
-const Hero = () => (
-  <HeroWrapper src={Background}>
+const Hero = ({ background, title }) => (
+  <HeroWrapper src={background}>
     <Contents>
-      <h1>The art of Freya Brown</h1>
+      <h1>{title}</h1>
     </Contents>
   </HeroWrapper>
 );
 
 export default Hero;
+
+Hero.propTypes = {
+  background: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 const HeroWrapper = styled(AsyncLoadBackground)`
   height: 100vh;
