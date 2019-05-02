@@ -1,0 +1,151 @@
+{
+  "artworks": [
+    {
+      "content": "This piece was drawn as a submission entry for a local art exhibition.\n\nThe theme is ‘Here Rolls the Sea’ based on a quote by Rabindranath Tagore:\n\n“Lead me across; For here rolls the sea, and even here lies the other shore waiting to be reached – yes, here is this everlasting present, not distant, not anywhere else”\n\nMy drawing represents Brahmā, the Hindu god of creation. I wanted to create a piece that demonstrates how Brahmā is not the external object in which many seek as part of other religions or beliefs, but is a higher power that is within us, a part of us and everything that we sense within our universe.\n",
+      "isEmpty": false,
+      "excerpt": "“Lead me across; For here rolls the sea, and even here lies the other shore waiting to be reached – yes, here is this everlasting present, not distant, not anywhere else”",
+      "title": "Brahmā",
+      "status": "Published",
+      "date": "2019-05-01T23:00:00.000Z",
+      "featuredImage": "/static/img/brahma.jpg",
+      "categories": [
+        {
+          "category": "Photorealism"
+        }
+      ],
+      "meta": {},
+      "name": "2019-05-02-brahmā",
+      "body": "This piece was drawn as a submission entry for a local art exhibition.\n\nThe theme is ‘Here Rolls the Sea’ based on a quote by Rabindranath Tagore:\n\n“Lead me across; For here rolls the sea, and even here lies the other shore waiting to be reached – yes, here is this everlasting present, not distant, not anywhere else”\n\nMy drawing represents Brahmā, the Hindu god of creation. I wanted to create a piece that demonstrates how Brahmā is not the external object in which many seek as part of other religions or beliefs, but is a higher power that is within us, a part of us and everything that we sense within our universe.\n"
+    },
+    {
+      "content": "Part of a group of animal studies\n\nA4 or A3 print on 300gsm high quality print paper, signed.\n\nOriginal drawing: ballpoint pen on A4\n\nSent wrapped in acid free paper in cardboard tube.\n\nPrints are made to order and will be sent out within 2 weeks.\n",
+      "isEmpty": false,
+      "excerpt": "Part of a group of animal studies",
+      "title": "Flying fish",
+      "status": "Published",
+      "date": "2019-05-02T14:20:56.852Z",
+      "featuredImage": "/static/img/flying-fish.jpg",
+      "categories": [
+        {
+          "category": "Animal Study"
+        }
+      ],
+      "meta": {},
+      "name": "2019-05-02-flying-fish",
+      "body": "Part of a group of animal studies\n\nA4 or A3 print on 300gsm high quality print paper, signed.\n\nOriginal drawing: ballpoint pen on A4\n\nSent wrapped in acid free paper in cardboard tube.\n\nPrints are made to order and will be sent out within 2 weeks.\n"
+    },
+    {
+      "content": "A portrait of Jon Snow from the book/TV series 'Game of Thrones'\n\nOriginal drawing: ballpoint pen on A3\n\nA3 print on 300gsm high quality print paper, signed.\n\nSent wrapped in acid free paper in cardboard tube.\n\nPrinted to order and sent out within 2 weeks.\n",
+      "isEmpty": false,
+      "excerpt": "A portrait of Jon Snow from the book/TV series 'Game of Thrones'",
+      "title": "Jon Snow",
+      "status": "Featured",
+      "date": "2019-05-02T09:46:58.076Z",
+      "featuredImage": "/static/img/jon-snow.jpg",
+      "categories": [
+        {
+          "category": "Photorealism"
+        }
+      ],
+      "meta": {},
+      "name": "2019-05-02-jon-snow",
+      "body": "A portrait of Jon Snow from the book/TV series 'Game of Thrones'\n\nOriginal drawing: ballpoint pen on A3\n\nA3 print on 300gsm high quality print paper, signed.\n\nSent wrapped in acid free paper in cardboard tube.\n\nPrinted to order and sent out within 2 weeks.\n"
+    },
+    {
+      "content": "A study of time, space and the theory of multiple universes.\n\nA4 print on 300gsm high quality print paper, signed.\n\nOriginal drawing: ballpoint pen on A4\n\nSent wrapped in acid free paper in cardboard tube.\n\nWill be sent out within 2 weeks.\n",
+      "isEmpty": false,
+      "excerpt": "A study of time, space and the theory of multiple universes.",
+      "title": "Multiverse",
+      "status": "Published",
+      "date": "2019-05-02T19:34:42.511Z",
+      "featuredImage": "/static/img/multiverse.jpg",
+      "categories": [
+        {
+          "category": "Universe series"
+        },
+        {
+          "category": "Art Print"
+        }
+      ],
+      "meta": {},
+      "name": "2019-05-02-multiverse",
+      "body": "A study of time, space and the theory of multiple universes.\n\nA4 print on 300gsm high quality print paper, signed.\n\nOriginal drawing: ballpoint pen on A4\n\nSent wrapped in acid free paper in cardboard tube.\n\nWill be sent out within 2 weeks.\n"
+    },
+    {
+      "content": "Part of a group of animal studies\n\nA4 or A3 print on 300gsm high quality print paper, signed.\n\nOriginal drawing: ballpoint pen on A4\n\nSent wrapped in acid free paper in cardboard tube.\n\nPrints are made to order and will be sent out within 2 weeks.\n",
+      "isEmpty": false,
+      "excerpt": "Part of a group of animal studies",
+      "title": "Unicorn",
+      "status": "Published",
+      "date": "2019-05-02T14:27:35.843Z",
+      "featuredImage": "/static/img/unicorn.jpg",
+      "categories": [
+        {
+          "category": "Animal Study"
+        },
+        {
+          "category": "Art Print"
+        }
+      ],
+      "meta": {},
+      "name": "2019-05-02-unicorn",
+      "body": "Part of a group of animal studies\n\nA4 or A3 print on 300gsm high quality print paper, signed.\n\nOriginal drawing: ballpoint pen on A4\n\nSent wrapped in acid free paper in cardboard tube.\n\nPrints are made to order and will be sent out within 2 weeks.\n"
+    }
+  ],
+  "categories": [
+    {
+      "content": "\n",
+      "isEmpty": false,
+      "excerpt": "",
+      "title": "Animal Study",
+      "name": "animal-study",
+      "body": "\n"
+    },
+    {
+      "content": "\n",
+      "isEmpty": false,
+      "excerpt": "",
+      "title": "Art Print",
+      "name": "art-print",
+      "body": "\n"
+    },
+    {
+      "content": "\n",
+      "isEmpty": false,
+      "excerpt": "",
+      "title": "Photorealism",
+      "meta": {},
+      "name": "photorealism",
+      "body": "\n"
+    },
+    {
+      "content": "\n",
+      "isEmpty": false,
+      "excerpt": "",
+      "title": "Universe series",
+      "name": "universe-series",
+      "body": "\n"
+    }
+  ],
+  "": {
+    "": {
+      "content": [
+        {
+          "content": "My name is Freya Brown and I am an artist that specialises in the use of biro/ballpoint pens to create both hyper-realistic portraits and my own creative designs.\n\nI began art from a very young age and it has been my passion ever since. I have dabbled in a lot of mediums during this time, but began working predominantly with biro around 4 years ago. I have since completed commissions for various clients as well as creating my own worlds and drawings with just the use of a Bic ballpoint pen or a combination of ink and digital techniques.\n\nThank you for visiting my page, and I hope you enjoy my work.\n",
+          "isEmpty": false,
+          "excerpt": "",
+          "title": "The Art of Freya Brown",
+          "date": "2019-03-17T19:31:20.591Z",
+          "cats": [
+            {
+              "description": "Grumpy cat is an American celebrity cat known for her grumpy appearance. ",
+              "name": "Grumpy cat (Tardar Sauce)"
+            }
+          ],
+          "name": "home",
+          "body": "My name is Freya Brown and I am an artist that specialises in the use of biro/ballpoint pens to create both hyper-realistic portraits and my own creative designs.\n\nI began art from a very young age and it has been my passion ever since. I have dabbled in a lot of mediums during this time, but began working predominantly with biro around 4 years ago. I have since completed commissions for various clients as well as creating my own worlds and drawings with just the use of a Bic ballpoint pen or a combination of ink and digital techniques.\n\nThank you for visiting my page, and I hope you enjoy my work.\n"
+        }
+      ]
+    }
+  }
+}
