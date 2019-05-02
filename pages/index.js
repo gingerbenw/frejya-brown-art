@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // Components
 import Hero from '../components/Hero';
@@ -6,24 +6,30 @@ import Content from '../components/Content';
 
 // Markdown
 import content from '../content/home.md';
+import data from '../data.json';
+
+/* eslint-disable no-unused-vars */
 
 const Home = () => {
+  const featuredArtworks = data.artworks.filter((page) => page.status === 'Featured');
+  const [activeArtwork, setActiveArtwork] = useState(featuredArtworks[0]);
+
   const {
     html,
-    attributes: { title, featuredImage },
+    attributes: { title },
   } = content;
   return (
     <article>
-      <Hero title={title} background={featuredImage} />
+      <Hero title={title} background={activeArtwork.featuredImage} />
       <Content src={html} />
-      {/* <ul>
-        {cats.map((cat, k) => (
+      <ul>
+        {data.artworks.map((artwork, k) => (
           <li key={k}>
-            <h2>{cat.name}</h2>
-            <p>{cat.description}</p>
+            <h2>{artwork.title}</h2>
+            <img src={artwork.featuredImage} alt={artwork.title} />
           </li>
         ))}
-      </ul> */}
+      </ul>
     </article>
   );
 };

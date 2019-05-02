@@ -18,7 +18,6 @@ collections:
       file: "content/home.md"
       fields: 
         - { label: "Title", name: "title", widget: "string"}
-        - { label: "Publish Date", name: "date", widget: "datetime" }
         - { label: "Body", name: "body", widget: "markdown"}
         - label: 'Cats'
           name: "cats"
@@ -41,9 +40,7 @@ collections:
         widget: 'select'
         options: ["Published", "Featured", "Draft"]
         default: 'Published'
-      - {label: Date / Order, name: date, widget: date}
       - {label: Featured Image, name: featuredImage, widget: image, required: true}
-      - {label: Excerpt, name: excerpt, widget: text}
       - {label: Content, name: body, widget: markdown}
       - label: "Categories"
         name: "categories"
