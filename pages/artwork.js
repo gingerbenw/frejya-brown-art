@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+// import { useSpring, animated } from 'react-spring';
 
 // Components
 import AsyncLoadBackground from '../components/AsyncLoadBackground';
@@ -21,6 +22,7 @@ const Artwork = ({ content }) => {
     html,
     attributes: { title, featuredImage },
   } = content;
+
   return (
     <Wrapper>
       <Backdrop src={featuredImage} zoom={showMoreInfo} />
@@ -42,7 +44,7 @@ const Artwork = ({ content }) => {
         </InfoPanel>
       )}
       {/* <PaginationLeft onClick={pageDown} />
-      <PaginationRight onClick={pageUp} /> */}
+    <PaginationRight onClick={pageUp} /> */}
     </Wrapper>
   );
 };
@@ -149,7 +151,7 @@ const MoreInfo = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
+  z-index: 10;
   color: white;
   background: rgba(0, 0, 0, 0.9);
   line-height: 2rem;

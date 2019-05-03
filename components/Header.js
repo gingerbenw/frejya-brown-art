@@ -1,22 +1,27 @@
 /* eslint-disable no-unused-vars */
+/* eslint-disable import/no-dynamic-require */
 
 import React, { useState } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
+import data from '../data';
+
+const { siteLogo } = data.settings[0];
+
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
-
   return (
     <Navbar scrolled={scrolled}>
+      <Logo src={siteLogo} />
       <NavMenu>
         <Link href="/">
           <NavItem>Home</NavItem>
         </Link>
-        <Link href="#about">
+        <Link href="/#about">
           <NavItem>About</NavItem>
         </Link>
-        <Link href="#gallery">
+        <Link href="/#gallery">
           <NavItem>Gallery</NavItem>
         </Link>
       </NavMenu>
@@ -25,6 +30,14 @@ const Header = () => {
 };
 
 export default Header;
+
+const Logo = styled.img`
+  height: 3rem;
+  width: 3rem;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+`;
 
 const Navbar = styled.header`
   position: absolute;

@@ -23,7 +23,11 @@ const ImageGallery = ({ artworks, categories }) => {
           All
         </Category>
         {categories.map(({ title }) => (
-          <Category active={categoryFilter === title} onClick={() => setCategoryFilter(title)}>
+          <Category
+            key={title}
+            active={categoryFilter === title}
+            onClick={() => setCategoryFilter(title)}
+          >
             {title}
           </Category>
         ))}
