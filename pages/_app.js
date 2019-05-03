@@ -1,6 +1,9 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 
+// Components
+import Header from '../components/Header';
+
 // Global data
 import data from '../data.json';
 
@@ -20,6 +23,7 @@ class MyApp extends App {
 
     return (
       <Container>
+        <Header />
         <Component {...pageProps} {...data} />
       </Container>
     );
