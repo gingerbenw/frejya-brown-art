@@ -1,0 +1,11 @@
+siteTitle: Freya Brown Art
+siteUrl: 'https://freyabrown.art'
+siteLogo: '/static/img/logo.svg'
+siteDescription: >-
+  The artwork of Freya Brown
+socialMediaCard:
+  image: /static/img/jon-snow.png
+  twitterCreatorAccount: ''
+  twitterSiteAccount: ''
+headerScripts: |-
+  <!-- Add your analytics scripts / verification meta here -->
