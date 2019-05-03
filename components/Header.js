@@ -1,10 +1,14 @@
-import React from 'react';
+/* eslint-disable no-unused-vars */
+
+import React, { useState } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
 const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+
   return (
-    <FixedHeader>
+    <Navbar scrolled={scrolled}>
       <NavMenu>
         <Link href="/">
           <NavItem>Home</NavItem>
@@ -16,13 +20,13 @@ const Header = () => {
           <NavItem>Gallery</NavItem>
         </Link>
       </NavMenu>
-    </FixedHeader>
+    </Navbar>
   );
 };
 
 export default Header;
 
-const FixedHeader = styled.header`
+const Navbar = styled.header`
   position: absolute;
   width: 100%;
   z-index: 1;
