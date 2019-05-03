@@ -72,7 +72,7 @@ const animations = css`
 `;
 
 const Wrapper = styled.main`
-  position: relative;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
