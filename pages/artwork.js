@@ -224,6 +224,7 @@ const MoreInfo = styled.div`
 const Details = styled.div`
   padding: 1.5rem;
   overflow-y: auto;
+  max-height: 100vh;
 `;
 
 const Title = styled.h1`
