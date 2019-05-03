@@ -52,6 +52,7 @@ const Wrapper = styled.div`
 
 const Filters = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 const Category = styled.button`
