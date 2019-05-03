@@ -13,15 +13,14 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   return (
     <Navbar scrolled={scrolled}>
-      <Logo src={siteLogo} />
+      <Link prefetch href="/">
+        <Logo src={siteLogo} />
+      </Link>
       <NavMenu>
-        <Link href="/">
-          <NavItem>Home</NavItem>
-        </Link>
-        <Link href="/#about">
+        <Link prefetch href="/#about">
           <NavItem>About</NavItem>
         </Link>
-        <Link href="/#gallery">
+        <Link prefetch href="/#gallery">
           <NavItem>Gallery</NavItem>
         </Link>
       </NavMenu>

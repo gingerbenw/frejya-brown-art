@@ -50,14 +50,14 @@ const Artwork = ({ content, artworks }) => {
             <MdAdd />
           </Controls>
           <TitlePanel>{title}</TitlePanel>
-          <Link href={prevUrl}>
+          <Link prefetch href={prevUrl}>
             <a>
               <Controls>
                 <MdKeyboardArrowLeft />
               </Controls>
             </a>
           </Link>
-          <Link href={nextUrl}>
+          <Link prefetch href={nextUrl}>
             <a>
               <Controls>
                 <MdKeyboardArrowRight />
