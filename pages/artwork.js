@@ -3,19 +3,18 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 // import { useSpring, animated } from 'react-spring';
 import Link from 'next/link';
-import { MdKeyboardArrowRight, MdKeyboardArrowLeft, MdAdd, MdShoppingCart } from 'react-icons/md';
-import { FaFacebook } from 'react-icons/fa';
+import {
+  MdKeyboardArrowRight,
+  MdKeyboardArrowLeft,
+  MdAdd,
+  // MdShoppingCart,
+  MdClose,
+} from 'react-icons/md';
+// import { FaFacebook } from 'react-icons/fa';
 
 // Components
 import AsyncLoadBackground from '../components/AsyncLoadBackground';
 import Content from '../components/Content';
-
-// Icons
-// import Plus from '../static/images/icons/plus.svg';
-import Close from '../static/images/icons/close.svg';
-
-// const PrevCursor = '/static/images/icons/plus.svg';
-// const NextCursor = '/static/images/icons/next.svg';
 
 const Artwork = ({ content, artworks }) => {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
@@ -71,20 +70,20 @@ const Artwork = ({ content, artworks }) => {
       )}
 
       <MoreInfo show={showMoreInfo}>
-        <Close onClick={toggleInfo} />
+        <MdClose onClick={toggleInfo} />
         {/* <Image src={featuredImage} alt={title} /> */}
         <Details>
           <Title>{title}</Title>
           <hr />
           <Content src={html} />
-          <Actions>
+          {/* <Actions>
             <MdShoppingCart />
             <span>
               Share:
               {' '}
               <FaFacebook />
             </span>
-          </Actions>
+          </Actions> */}
         </Details>
       </MoreInfo>
     </Wrapper>
@@ -188,7 +187,7 @@ const MoreInfo = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 10;
+  z-index: 2;
   color: white;
   background: rgba(0, 0, 0, 0.9);
   line-height: 2rem;
@@ -204,9 +203,10 @@ const MoreInfo = styled.div`
     display: block;
     right: 2rem;
     top: 2rem;
-    height: 2.5rem;
-    width: 2.5rem;
+    height: 4rem;
+    width: 4rem;
     fill: white;
+    z-index: 10;
 
     opacity: 0.75;
 
@@ -232,8 +232,8 @@ const Title = styled.h1`
   letter-spacing: 0.5rem;
 `;
 
-const Actions = styled.div`
-  svg {
-    position: relative;
-  }
-`;
+// const Actions = styled.div`
+//   svg {
+//     position: relative;
+//   }
+// `;
