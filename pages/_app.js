@@ -1,5 +1,7 @@
 import React from 'react';
 import App, { Container } from 'next/app';
+import { PageTransition } from 'next-page-transitions';
+import styled from 'styled-components';
 
 // Components
 import Header from '../components/Header';
@@ -22,12 +24,33 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <Container>
-        <Header />
-        <Component {...pageProps} {...data} />
-      </Container>
+      <AppWrapper>
+        <Container>
+          <Header />
+          <PageTransition timeout={300} classNames="page-transition">
+            <Component {...pageProps} {...data} />
+          </PageTransition>
+        </Container>
+      </AppWrapper>
     );
   }
 }
 
 export default MyApp;
+
+const AppWrapper = styled.div`
+  .page-transition-enter {
+    opacity: 0;
+  }
+  .page-transition-enter-active {
+    opacity: 1;
+    transition: opacity 300ms;
+  }
+  .page-transition-exit {
+    opacity: 1;
+  }
+  .page-transition-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+`;
