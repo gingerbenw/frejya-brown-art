@@ -16,14 +16,14 @@ const Header = () => {
       <Link prefetch href="/">
         <Logo src={siteLogo} />
       </Link>
-      <NavMenu>
+      {/* <NavMenu>
         <Link prefetch href="/#about">
           <NavItem>About</NavItem>
         </Link>
         <Link prefetch href="/#gallery">
           <NavItem>Gallery</NavItem>
         </Link>
-      </NavMenu>
+      </NavMenu> */}
     </Navbar>
   );
 };
@@ -36,6 +36,12 @@ const Logo = styled.img`
   position: fixed;
   top: 1rem;
   left: 1rem;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+  &:hover {
+    opacity: 1;
+  }
 `;
 
 const Navbar = styled.header`

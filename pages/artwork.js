@@ -113,6 +113,14 @@ const Wrapper = styled.main`
   overflow: hidden;
 `;
 
+const Backdrop = styled(AsyncLoadBackground)`
+  height: 100vh;
+  width: 100%;
+
+  transition: transform 1s;
+  transform: scale(${({ zoom }) => (zoom ? '1.2' : '1')});
+`;
+
 const InfoPanel = styled.div`
   position: absolute;
   bottom: 1rem;
@@ -127,12 +135,6 @@ const InfoPanel = styled.div`
   }
 `;
 
-const Details = styled.div`
-  padding: 2rem;
-  padding-left: 0;
-  max-width: 900px;
-`;
-
 const Controls = styled.div`
   background: #eee;
   padding: 0.5rem;
@@ -140,8 +142,8 @@ const Controls = styled.div`
   color: #888;
   display: flex;
   align-items: center;
-
   transition: background-color 0.2s, color 0.2s;
+  margin-right: 0.125rem;
 
   svg {
     height: 1.5rem;
@@ -187,10 +189,12 @@ const MoreInfo = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 2;
+  z-index: 10;
   color: white;
   background: rgba(0, 0, 0, 0.9);
   line-height: 2rem;
+
+  /* padding-top: 5rem; */
 
   opacity: ${({ show }) => (show ? 1 : 0)};
   pointer-events: ${({ show }) => (show ? 'all' : 'none')};
@@ -201,10 +205,10 @@ const MoreInfo = styled.div`
   svg {
     position: absolute;
     display: block;
-    right: 2rem;
-    top: 2rem;
-    height: 4rem;
-    width: 4rem;
+    right: 1rem;
+    top: 1rem;
+    height: 3rem;
+    width: 3rem;
     fill: white;
     z-index: 10;
 
@@ -217,18 +221,16 @@ const MoreInfo = styled.div`
   }
 `;
 
-const Backdrop = styled(AsyncLoadBackground)`
-  height: 100vh;
-  width: 100%;
-
-  transition: transform 1s;
-  transform: scale(${({ zoom }) => (zoom ? '1.2' : '1')});
+const Details = styled.div`
+  padding: 1.5rem;
+  overflow-y: auto;
 `;
 
 const Title = styled.h1`
   color: white;
   text-transform: uppercase;
-  font-size: 3rem;
+  font-size: 2.6rem;
+  line-height: 3rem;
   letter-spacing: 0.5rem;
 `;
 
