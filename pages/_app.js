@@ -27,7 +27,7 @@ class MyApp extends App {
       <AppWrapper>
         <Container>
           <Header />
-          <PageTransition timeout={300} classNames="page-transition">
+          <PageTransition timeout={500} classNames="page-transition">
             <Component {...pageProps} {...data} />
           </PageTransition>
         </Container>
@@ -44,13 +44,13 @@ const AppWrapper = styled.div`
   }
   .page-transition-enter-active {
     opacity: 1;
-    transition: opacity 300ms;
+    transition: opacity 500ms;
   }
   .page-transition-exit {
     opacity: 1;
   }
   .page-transition-exit-active {
     opacity: 0;
-    transition: opacity 300ms;
+    transition: opacity 500ms;
   }
 `;

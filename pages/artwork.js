@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 // import { useSpring, animated } from 'react-spring';
 import Link from 'next/link';
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft, MdAdd, MdShoppingCart } from 'react-icons/md';
@@ -105,17 +105,6 @@ Artwork.getInitialProps = ({ query: { file } }) => {
   return { content };
 };
 
-const animations = css`
-  @keyframes fillIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-`;
-
 const Wrapper = styled.main`
   position: fixed;
   top: 0;
@@ -138,14 +127,6 @@ const InfoPanel = styled.div`
     color: inherit;
   }
 `;
-/*
-const Image = styled.img`
-  max-height: 100vh;
-  max-width: 40%;
-  margin: 0 2rem;
-
-  pointer-events: none;
-`; */
 
 const Details = styled.div`
   padding: 2rem;
@@ -161,7 +142,7 @@ const Controls = styled.div`
   display: flex;
   align-items: center;
 
-  transition: background 0.2s, color 0.2s;
+  transition: background-color 0.2s, color 0.2s;
 
   svg {
     height: 1.5rem;
@@ -176,8 +157,15 @@ const Controls = styled.div`
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   }
 
-  ${animations}
   animation: fillIn 1s;
+  @keyframes fillIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
 const TitlePanel = styled(Controls)`
