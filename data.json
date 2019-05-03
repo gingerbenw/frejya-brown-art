@@ -147,5 +147,20 @@
         }
       ]
     }
-  }
+  },
+  "settings": [
+    {
+      "siteTitle": "Freya Brown Art",
+      "siteLogo": "/static/img/logo.png",
+      "siteUrl": "https://freyabrown.art",
+      "siteDescription": "The artwork of Freya Brown",
+      "socialMediaCard": {
+        "image": "/static/img/jon-snow.jpg",
+        "twitterCreatorAccount": "",
+        "twitterSiteAccount": ""
+      },
+      "headerScripts": "<!-- Add your analytics scripts / verification meta here -->",
+      "name": "global"
+    }
+  ]
 }

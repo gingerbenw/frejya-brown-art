@@ -32,6 +32,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.4",
+    "react-icons": "^3.6.1",
     "react-markdown": "^4.0.6",
     "react-spring": "^8.0.19",
     "react-svg-loader": "^2.1.0",

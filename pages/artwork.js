@@ -1,50 +1,92 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 // import { useSpring, animated } from 'react-spring';
+import Link from 'next/link';
+import { MdKeyboardArrowRight, MdKeyboardArrowLeft, MdAdd, MdShoppingCart } from 'react-icons/md';
+import { FaFacebook } from 'react-icons/fa';
 
 // Components
 import AsyncLoadBackground from '../components/AsyncLoadBackground';
 import Content from '../components/Content';
 
 // Icons
-import Plus from '../static/images/icons/plus.svg';
+// import Plus from '../static/images/icons/plus.svg';
 import Close from '../static/images/icons/close.svg';
 
 // const PrevCursor = '/static/images/icons/plus.svg';
 // const NextCursor = '/static/images/icons/next.svg';
 
-const Artwork = ({ content }) => {
+const Artwork = ({ content, artworks }) => {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   const toggleInfo = () => setShowMoreInfo(!showMoreInfo);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoaded(true);
+    }, 500);
+  }, []);
+
+  // Page content
   const {
     html,
     attributes: { title, featuredImage },
   } = content;
 
+  // Pagination
+  const activeIndex = artworks.findIndex((art) => art.title === title);
+  const prevIndex = activeIndex !== 0 ? activeIndex - 1 : artworks.length - 1;
+  const nextIndex = activeIndex !== artworks.length - 1 ? activeIndex + 1 : 0;
+  const prevUrl = `/work/${artworks[prevIndex].name}`;
+  const nextUrl = `/work/${artworks[nextIndex].name}`;
+
   return (
     <Wrapper>
       <Backdrop src={featuredImage} zoom={showMoreInfo} />
-      {showMoreInfo ? (
-        <MoreInfo>
-          <Close onClick={toggleInfo} />
-          <Image src={featuredImage} alt={title} />
-          <Details>
-            <Title>{title}</Title>
-            <Content src={html} />
-          </Details>
-        </MoreInfo>
-      ) : (
+
+      {loaded && (
         <InfoPanel>
           <Controls onClick={toggleInfo}>
-            <Plus />
+            <MdAdd />
           </Controls>
           <TitlePanel>{title}</TitlePanel>
+          <Link href={prevUrl}>
+            <a>
+              <Controls>
+                <MdKeyboardArrowLeft />
+              </Controls>
+            </a>
+          </Link>
+          <Link href={nextUrl}>
+            <a>
+              <Controls>
+                <MdKeyboardArrowRight />
+              </Controls>
+            </a>
+          </Link>
+          {/* <PaginationLeft onClick={pageDown} />
+        <PaginationRight onClick={pageUp} /> */}
         </InfoPanel>
       )}
-      {/* <PaginationLeft onClick={pageDown} />
-    <PaginationRight onClick={pageUp} /> */}
+
+      <MoreInfo show={showMoreInfo}>
+        <Close onClick={toggleInfo} />
+        {/* <Image src={featuredImage} alt={title} /> */}
+        <Details>
+          <Title>{title}</Title>
+          <hr />
+          <Content src={html} />
+          <Actions>
+            <MdShoppingCart />
+            <span>
+              Share:
+              {' '}
+              <FaFacebook />
+            </span>
+          </Actions>
+        </Details>
+      </MoreInfo>
     </Wrapper>
   );
 };
@@ -53,6 +95,7 @@ export default Artwork;
 
 Artwork.propTypes = {
   content: PropTypes.object,
+  artworks: PropTypes.array,
 };
 
 /* eslint-disable global-require */
@@ -86,17 +129,23 @@ const InfoPanel = styled.div`
   position: absolute;
   bottom: 1rem;
   left: 1rem;
+  right: 1rem;
   z-index: 2;
   display: flex;
-`;
+  justify-content: space-between;
 
+  a {
+    color: inherit;
+  }
+`;
+/*
 const Image = styled.img`
   max-height: 100vh;
   max-width: 40%;
   margin: 0 2rem;
 
   pointer-events: none;
-`;
+`; */
 
 const Details = styled.div`
   padding: 2rem;
@@ -108,9 +157,11 @@ const Controls = styled.div`
   background: #eee;
   padding: 0.5rem;
   border: none;
-  margin-right: 0.5rem;
+  color: #888;
   display: flex;
   align-items: center;
+
+  transition: background 0.2s, color 0.2s;
 
   svg {
     height: 1.5rem;
@@ -119,33 +170,31 @@ const Controls = styled.div`
 
   &:hover {
     cursor: pointer;
-    background: #ddd;
+    background: #fff;
+    color: #333;
+
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   }
 
   ${animations}
   animation: fillIn 1s;
 `;
 
-const TitlePanel = styled.div`
-  background: #eee;
+const TitlePanel = styled(Controls)`
   padding: 0.5rem 2rem;
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.125rem;
 
-  display: flex;
-  align-items: center;
-
-  ${animations}
-  animation: fillIn 1s;
+  margin-right: auto;
 `;
 
 const MoreInfo = styled.div`
   display: flex;
-  position: absolute;
+  position: fixed;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   top: 0;
   left: 0;
@@ -156,15 +205,11 @@ const MoreInfo = styled.div`
   background: rgba(0, 0, 0, 0.9);
   line-height: 2rem;
 
-  animation: fadein 1s;
-  @keyframes fadein {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+  opacity: ${({ show }) => (show ? 1 : 0)};
+  pointer-events: ${({ show }) => (show ? 'all' : 'none')};
+
+  transition: transform 1s, opacity 1s;
+  transform: scale(${({ show }) => (show ? '1' : '1.1')});
 
   svg {
     position: absolute;
@@ -199,55 +244,8 @@ const Title = styled.h1`
   letter-spacing: 0.5rem;
 `;
 
-// const PaginationLeft = styled.div`
-//   position: absolute;
-//   height: 100vh;
-//   width: 50%;
-//   top: 0;
-//   left: 0;
-//   /* cursor: url(${PrevCursor}), pointer; */
-
-//   &:hover {
-//     background-image: linear-gradient(
-//       to left,
-//       rgba(0, 0, 0, 0),
-//       rgba(0, 0, 0, 0.2)
-//     );
-//   }
-// `;
-
-// const PaginationRight = styled.div`
-//   position: absolute;
-//   height: 100vh;
-//   width: 50%;
-//   top: 0;
-//   right: 0;
-//   /* cursor: url(${NextCursor}), pointer; */
-
-//   &:hover {
-//     background-image: linear-gradient(
-//       to right,
-//       rgba(0, 0, 0, 0),
-//       rgba(0, 0, 0, 0.2)
-//     );
-//   }
-// `;
-
-// Pagination
-// const activeIndex = artworks.findIndex((art) => art.id === page.id);
-
-// const pageUp = () => {
-//   const nextItem =
-//     artworks.length - 1 === activeIndex
-//       ? artworks[0]
-//       : artworks[activeIndex + 1];
-//   Router.push(nextItem.url);
-// };
-
-// const pageDown = () => {
-//   const prevItem =
-//     activeIndex === 0
-//       ? artworks[artworks.length - 1]
-//       : artworks[activeIndex - 1];
-//   Router.push(prevItem.url);
-// };
+const Actions = styled.div`
+  svg {
+    position: relative;
+  }
+`;
