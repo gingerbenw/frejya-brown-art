@@ -34,6 +34,8 @@ const HeroWrapper = styled(AsyncLoadBackground)`
 const Contents = styled.div`
   padding: 2rem 3rem;
   background: rgba(255, 255, 255, 0.3);
+  max-width: 85%;
+  box-sizing: border-box;
 
   h1 {
     color: white;
@@ -41,8 +43,16 @@ const Contents = styled.div`
 
     font-size: 2.5rem;
     max-width: 20rem;
-    letter-spacing: 0.25rem;
+    letter-spacing: 0.75rem;
 
     line-height: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 1.8rem;
+      line-height: 2.6rem;
+      letter-spacing: 0.25rem;
+    }
   }
 `;

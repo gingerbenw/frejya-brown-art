@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import AsyncLoadBackground from './AsyncLoadBackground';
 
 const Gallery = ({ artworks }) => (
-  <Container id="gallery">
+  <Container>
     {artworks.map(({ title, featuredImage, name }) => (
       <Link prefetch key={name} href={`/work/${name}`}>
         <Item withScrollEffect src={featuredImage}>
@@ -26,25 +26,32 @@ Gallery.propTypes = {
 };
 
 const Container = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 0.5rem;
-
-  max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   margin: auto;
-  padding-bottom: 6rem;
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
 `;
 
 const Item = styled(AsyncLoadBackground)`
+  width: calc(100% / 3);
+  height: 33vw;
+
+  /* mobile */
+  @media (max-width: 900px) {
+    width: 50vw;
+    height: 50vw;
+  }
+
+  /* tablet */
+  @media (max-width: 400px) {
+    width: 100vw;
+    height: 60vw;
+  }
+
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 16rem;
   letter-spacing: 0.25rem;
   color: #444;
   text-transform: uppercase;

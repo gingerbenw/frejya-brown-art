@@ -46,21 +46,23 @@ ImageGallery.propTypes = {
 
 const Wrapper = styled.div`
   text-align: center;
+  color: white;
+  position: relative;
 `;
 
 const Filters = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 3rem 1.5rem;
 `;
 
 const Category = styled.button`
+  flex: 1;
   background: ${({ active }) => (active ? '#8a8a8a' : '#4d4d4d')};
   color: white;
   border: none;
   text-transform: uppercase;
-  padding: 0.5rem 1.5rem;
+  padding: 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.125rem;
 
   &:hover {
     background: #5e5e5e;

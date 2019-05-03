@@ -232,6 +232,10 @@ const Title = styled.h1`
   font-size: 2.6rem;
   line-height: 3rem;
   letter-spacing: 0.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 // const Actions = styled.div`
